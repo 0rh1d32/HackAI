@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Reminder</title>
+    <style>
+        /* Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #212529; /* Dark text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+           
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 4px;
+            background-color: #28a745; /* Green accent */
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Button */
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Appointment Form */
+        #appointment-form {
+            margin-top: 20px;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #e3e6ea;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input {
+            margin-top: 5px;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        form button {
+            margin-top: 15px;
+            background-color: #28a745;
+            font-size: 1rem;
+        }
+
+        #appointments-list {
+            margin-top: 20px;
+        }
+
+        #appointments ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #appointments li {
+            background: #e3e6ea;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ 
+/* Adjust the body layout to place the nav and container side by side */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Light background */
+    color: #212529; /* Dark text */
+    display: flex;
+    justify-content: flex-start;  /* Align items from the start */
+    align-items: flex-start;     /* Align items from the top */
+    min-height: 100vh;
+    flex-wrap: wrap;             /* Allow wrapping if there's not enough space */
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-left: 20px;           /* Add space between the nav and the container */
+    flex-grow: 1; 
+    margin-left:500px ;               /* Allow it to take the remaining space */
+}
+
+/* Adjust nav to be fixed to the top of the page */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #0056b3, #1e90ff);
+    padding: 15px 5%;
+    width: 100%; /* Ensure nav takes full width */
+    border-bottom: 2px solid #ccc;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;            /* Sticky positioning to keep it at the top */
+    top: 0;                      /* Stick it at the top of the page */
+    z-index: 10;                 /* Ensure it stays above other content */
+}
+
+/* Additional styling for links and logo */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Increased font size for better readability */
+    margin: 0 20px;
+    font-weight: 700; /* Bolder font */
+    transition: color 0.3s, transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f8f9fa;
+    transform: scale(1.1);
+}
+
+nav .logo {
+    font-size: 24px; /* Larger font size for the logo */
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html"> MindBridge</a>
+         
+        </div>
+        <div>
+            <a href="doc.html">Doctor's Appointment Reminder</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Set Your Appointment Reminder</h1>
+        </header>
+
+        <!-- Button to Add Appointment -->
+        <button id="add-appointment-btn">Add Appointment</button>
+
+        <!-- Appointment Form (Hidden by Default) -->
+        <div id="appointment-form" class="hidden">
+            <h2>Add a New Appointment</h2>
+            <form id="appointment-form-element">
+                <label for="appointment-time">Select Appointment Time:</label>
+                <input type="datetime-local" id="appointment-time" required>
+
+                <label for="appointment-title">Appointment Title:</label>
+                <input type="text" id="appointment-title" placeholder="e.g., Checkup or Follow-up" required>
+
+                <label for="doctor-name">Doctor's Name:</label>
+                <input type="text" id="doctor-name" placeholder="e.g., Dr. John Doe" required>
+
+                <button type="submit">Set Reminder</button>
+            </form>
+        </div>
+
+        <!-- Scheduled Appointments -->
+        <div id="appointments-list">
+            <h2>Scheduled Appointments</h2>
+            <ul id="appointments"></ul>
+        </div>
+    </div> 
+
+    <script>
+        // Select Elements
+        const addAppointmentBtn = document.getElementById("add-appointment-btn");
+        const appointmentForm = document.getElementById("appointment-form");
+        const appointmentFormElement = document.getElementById("appointment-form-element");
+        const appointmentsList = document.getElementById("appointments");
+
+        // Appointments Array
+        let appointments = [];
+
+        // Show Appointment Form
+        addAppointmentBtn.addEventListener("click", () => {
+            appointmentForm.classList.toggle("hidden");
+        });
+
+        // Handle Form Submission
+        appointmentFormElement.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const title = document.getElementById("appointment-title").value;
+            const time = new Date(document.getElementById("appointment-time").value);
+            const doctor = document.getElementById("doctor-name").value;
+
+            if (time > new Date()) {
+                const appointment = { title, time, doctor }; // Include doctor's name
+                appointments.push(appointment);
+                renderAppointments();
+                scheduleNotifications(appointment);
+                appointmentFormElement.reset();
+                appointmentForm.classList.add("hidden");
+            } else {
+                alert("Please select a future time for the appointment.");
+            }
+        });
+
+        // Render Appointments
+        function renderAppointments() {
+            appointmentsList.innerHTML = "";
+            appointments.forEach((appointment, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <span>
+                        <strong>${appointment.title}</strong> with ${appointment.doctor} - 
+                        ${appointment.time.toLocaleString()}
+                    </span>
+                    <button onclick="removeAppointment(${index})">Remove</button>
+                `;
+                appointmentsList.appendChild(li);
+            });
+        }
+
+        // Remove Appointment
+        function removeAppointment(index) {
+            appointments.splice(index, 1);
+            renderAppointments();
+        }
+
+        // Schedule Notifications
+        function scheduleNotifications(appointment) {
+            const now = new Date().getTime();
+            const timeDiff = appointment.time.getTime() - now;
+
+            if (timeDiff > 3600000) {
+                setTimeout(() => notifyUser(appointment, "1 hour"), timeDiff - 3600000);
+            }
+            if (timeDiff > 1800000) {
+                setTimeout(() => notifyUser(appointment, "30 minutes"), timeDiff - 1800000);
+            }
+            if (timeDiff > 300000) {
+                setTimeout(() => notifyUser(appointment, "5 minutes"), timeDiff - 300000);
+            }
+        }
+
+        // Notify User
+        function notifyUser(appointment, reminderTime) {
+            const message = `Reminder: Your appointment "${appointment.title}" with ${appointment.doctor} is in ${reminderTime}.`;
+
+            // Display Notification
+            if (Notification.permission === "granted") {
+                new Notification("Appointment Reminder", { body: message });
+            } else {
+                alert(message);
+            }
+
+            // Voice Announcement
+            const utterance = new SpeechSynthesisUtterance(message);
+            speechSynthesis.speak(utterance);
+        }
+
+        // Request Notification Permission
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        }
+        window.onload = function() {
+        alert("You will receive notifications for your appointment 1 hour, 30 minutes, or 5 minutes before the scheduled time.");
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #0056b3, #1e90ff);
+            padding: 15px 5%;
+            width: 100%;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Container for Links */
+        nav div {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navigation Links */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 20px;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #f8f9fa;
+            transform: scale(1.1);
+        }
+
+        /* Logo */
+        nav .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        /* Main content padding adjustment to avoid nav overlap */
+        body {
+            padding-top: 70px; /* Adjust this value based on nav height */
+        }
+
+        /* Contact Form Container */
+        .contact-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007BFF;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Success Message */
+        #successMessage {
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .contact-container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MindBridge</a>
+        </div>
+        <div>
+            <a href="doc.html">Doctor's Appointment Reminder</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+    
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        
+
+    <script>
+        // Contact Form Script
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+
+            // Form Validation
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (name && email && message) {
+                // Show success message
+                document.getElementById("successMessage").classList.remove("hidden");
+
+                // Reset the form
+                document.getElementById("contactForm").reset();
+            } else {
+                alert("Please fill out all fields!");
+            }
+        });
+    </script>
+</body>
+</html>

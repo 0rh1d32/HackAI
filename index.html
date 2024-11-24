@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Meal Tracker with AI Accessibility</title>
+    <link rel="stylesheet" href="style.css">
+    <style>/* Navigation Bar */
+/* Reset some default styles */
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body style */
+body {
+    font-family: 'Arial', sans-serif; /* You can change this to any font you like */
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Make sure body takes full width */
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #0056b3, #1e90ff);
+    padding: 15px 5%;
+    width: 100%; /* Ensure nav takes full width */
+    border-bottom: 2px solid #ccc;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for Links */
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Links */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Increased font size for better readability */
+    margin: 0 20px;
+    font-weight: 700; /* Bolder font */
+    transition: color 0.3s, transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f8f9fa;
+    transform: scale(1.1);
+}
+
+/* Logo */
+nav .logo {
+    font-size: 24px; /* Larger font size for the logo */
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Main Container */
+.container {
+    width: 100%; /* Make the container full width */
+    max-width: 1200px; /* Optional, set a max-width for larger screens */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+
+
+/* Card container */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-left: 350px;
+}
+
+/* Card */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 48%; /* Makes cards 50% width, adjusted for gaps */
+    box-sizing: border-box;
+    font-size: 18px; /* Larger font size inside the card */
+}
+
+/* Meal Times */
+.meal-times label {
+    font-size: 20px; /* Larger text for meal times */
+    font-weight: 600; /* Bolder text */
+    margin-left: 10px;
+}
+
+/* Meal Counter */
+#meal-count {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+/* Meal Reminder */
+#meal-reminder {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Countdown */
+#meal-countdown {
+    font-size: 20px;
+    color: #e74c3c; /* Red color for countdown */
+    font-weight: 600;
+}
+
+/* Voice control buttons */
+.voice-control {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.voice-control-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px; /* More rounded buttons */
+    cursor: pointer;
+    font-size: 18px; /* Larger font size for buttons */
+    transition: background-color 0.3s;
+}
+
+.voice-control-button:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 10%;
+    }
+
+    nav a {
+        font-size: 18px; /* Slightly smaller font on mobile */
+        margin: 8px 0;
+    }
+
+
+    .card {
+        width: 100%; /* Full width for cards on mobile */
+    }
+
+    .voice-control-button {
+        font-size: 16px; /* Slightly smaller buttons on mobile */
+        padding: 12px 20px;
+    }
+}
+
+
+        </style>
+</head>
+<body> 
+    <nav>
+        <div class="logo">
+            <a href="home.html"> MindBridge</a>
+        </div>
+        <div>
+            <a href="doc.html">Doctor's Appointment Reminder</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header>
+            <h1>Food Meal Tracker</h1>
+        </header>
+
+        <div class="card-container">
+            <!-- Food Tracker Card -->
+            <div class="card" id="food-card">
+                <h2>Food Tracker</h2>
+                <p>Track your meals for the day!</p>
+                
+                <!-- Meal Times Display with clickable buttons and checkboxes -->
+                <div class="meal-times">
+                    <div>
+                        <input type="checkbox" id="breakfast-checkbox" onclick="mealClicked('Breakfast')"> 
+                        <label for="breakfast-checkbox">Breakfast: 10:00 AM</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="lunch-checkbox" onclick="mealClicked('Lunch')"> 
+                        <label for="lunch-checkbox">Lunch: 2:00 PM</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dinner-checkbox" onclick="mealClicked('Dinner')"> 
+                        <label for="dinner-checkbox">Dinner: 6:00 PM</label>
+                    </div>
+                </div>
+                
+                <!-- Meals Counter -->
+                <p id="meal-count">Meals eaten today: 0</p>
+
+                <!-- Meal Reminder -->
+                <p id="meal-reminder">Time for your next meal: Breakfast</p>
+
+                <!-- Countdown for time until next meal -->
+                <p id="meal-countdown"></p>
+            </div>
+        </div>
+
+        <!-- Voice Control Buttons -->
+        <div class="voice-control">
+            <button class="voice-control-button" onclick="startVoiceRecognition()">Start Voice Recognition</button>
+            <button class="voice-control-button" onclick="stopVoiceRecognition()">Stop Voice Recognition</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+    
+        </ul>
+        <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

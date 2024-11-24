@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Support Network</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.footer {
+    margin-top: 150px;
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+    </style>
+    
+
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            MindBridge
+        </div>
+        <div>
+            <a href="doc.html">Doctor's Appointment Reminder</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div>
+            <h2>Support, Research, and Awareness</h2>
+            <p>Join us in empowering individuals and families affected by Alzheimer's with the tools they need to thrive and find hope.</p>
+            <button id="start-speech">Click to Hear Us Speak</button>
+        </div>
+
+        <div class="robot-avatar">
+            <img src="ha.png" alt="Robot Avatar">
+            <div class="mouth" id="robot-mouth"></div>
+        </div>
+    </section>  
+     <div class="banner" id="banner">
+        <p>
+            Alzheimer’s disease is a progressive neurological disorder that affects the brain</p>
+    </div>
+    <div class="hero-section" id="next-section" >
+        <div class="hero-content">
+            <h1 id="hero-title">WHAT WE HELP WHITH</h1>
+            <p>Our platform offers personalized tools and resources to support<br> individuals living with Alzheimer's. </p>
+            <div class="hero-buttons">
+                <button class="z-button" id="z-btn">Click to Hear Us Speak</button>
+            </div>
+        </div>
+        <div class="circle-buttons">
+            <a href="esa.html" class="circle-btn" id="food-planner-btn">
+                <span>Healthy Chatbot </span>
+            </a>
+            <a href="ft.html" class="circle-btn" id="family-tree-btn">
+                <span>Family Tree</span>
+            </a>
+            <a href="index.html" class="circle-btn" id="healthy-chatbot-btn">
+                <span>Food Tracker</span>
+            </a>
+        </div>
+    </div>
+    </div>
+<div>   
+   
+    <section id="save-my-story-section" style="
+    text-align: center; 
+    margin: 20px 0; 
+    padding: 30px 20px; 
+    background: linear-gradient(135deg, #0056b3, #008bce); /* Darker gradient on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    color: #ffffff;
+    position: relative;">
+    <!-- Phone Icon -->
+    <div style="
+        width: 60px; 
+        height: 60px; 
+        border-radius: 50%; 
+        background-color: #ffffff; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        position: absolute; 
+        top: -30px; 
+        left: 50%; 
+        transform: translateX(-50%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    ">
+    </div>
+    
+    <h2 style="
+        font-size: 26px; 
+        font-family: 'Georgia', serif; 
+        color: #ffffff; 
+        margin-top: 40px;
+    ">
+        Sometimes People Forget Who They Are
+    </h2>
+    <p style="
+        font-size: 16px; 
+        font-family: 'Arial', sans-serif; 
+        color: #e0f7fa; 
+        max-width: 700px; 
+        margin: 0 auto; 
+        line-height: 1.6; 
+        padding: 0 10px;
+    ">
+        That’s why we created <strong>"Save My Story"</strong> – a space where people with Alzheimer’s or their family members can preserve memories. 
+        It’s your story to tell, and we’re here to help.
+    </p>
+    <button id="tell-my-story-link" style="
+        margin-top: 20px; 
+        padding: 14px 24px; 
+        background-color: #3d3b3b; 
+        color: #ffffff; 
+        font-family: 'Verdana', sans-serif; 
+        border: none; 
+        border-radius: 25px; 
+        cursor: pointer; 
+        font-size: 16px; 
+        font-weight: bold; 
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+        transition: all 0.3s ease;
+    ">
+        Tell My Story
+    </button>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Redirect to story.html when the button is clicked
+        document.getElementById('tell-my-story-link').addEventListener('click', () => {
+            window.location.href = 'story.html'; // Redirect to story.html
+        });
+    });
+</script>
+
+    
+    
+</div>
+ 
+    <section class="info-cards">
+        <div class="card1">
+            <a href="meal-tracking.html" style="text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2870/2870814.png" alt="Meal Tracking Icon" class="card-icon">
+                <h3>Meal Tracking</h3>
+                <p>Effortlessly track daily meals to ensure nutritional needs are met, aiding in Alzheimer’s care and well-being.</p>
+            </a>
+        </div>
+        
+        <div class="card1">
+            <a href="research.html" style="text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2164/2164725.png" alt="Research Icon" class="card-icon">
+                <h3>Explore Research</h3>
+                <p>Stay informed on the latest research breakthroughs and learn how to contribute to the fight against Alzheimer’s.</p>
+            </a>
+        </div>
+        
+        <div class="card1">
+            <a href="get-involved.html" style="text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2702/2702161.png" alt="Get Involved Icon" class="card-icon">
+                <h3>Get Involved</h3>
+                <p>Join our community to volunteer, advocate, and spread awareness to support those affected by Alzheimer’s.</p>
+            </a>
+        </div>
+    </section>
+    
+
+    
+    
+  
+    <section class="main-section">
+        <div class="container">
+            <h1 id="main-section-title">Get the Basics About Alzheimer</h1>
+            <p id="main-section-desc">There are thousands of types of colleges out there. Start here to get guidance to help you plan.</p>
+            <div class="cards">
+                <div class="card">
+                    <h2 id="card-1-title">Understanding Alzheimer's: Impact</h2>
+                    <p id="card-1-desc">Alzheimer’s disease is a degenerative brain disorder that slowly destroys memory, thinking skills, and the ability to carry out everyday tasks.
+                    </p>
+                </div>
+                <div class="card">
+
+                    <h2 id="card-2-title">The Challenges of Alzheimer’s Disease</h2>
+                    <p id="card-2-desc">
+                        While there is no cure for Alzheimer’s, early detection and treatment can help manage symptoms and improve quality of life for patients and caregivers.</p>
+                </div>
+                <div class="card">
+                    <h2 id="card-3-title">Alzheimer's Awareness</h2>
+                    <p id="card-3-desc">As the most common cause of dementia, Alzheimer’s affects millions worldwide, making it a major focus of medical research and caregiving support.
+
+
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+<body>
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a></li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+  
+      </ul>
+      <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+  
+  
+
+    <script>
+        
+
+    const startSpeechButton = document.getElementById('start-speech'); // First Button
+    const secondSpeechButton = document.getElementById('z-btn'); // Second Button
+    const mouth = document.getElementById('robot-mouth');
+
+    // Function to make the robot "speak" with mouth animation
+    function speakMessage(message) {
+        const utterance = new SpeechSynthesisUtterance(message);
+
+        // Animate the robot mouth while speaking
+        mouth.style.animation = "speak 1s ease-in-out infinite";
+
+        window.speechSynthesis.speak(utterance);
+
+        utterance.onstart = () => {
+            mouth.style.animationPlayState = "running";
+        };
+
+        utterance.onend = () => {
+            mouth.style.animationPlayState = "paused";
+        };
+    }
+
+    // Add event listener for the first button
+    startSpeechButton.addEventListener('click', () => {
+        const message = "Hi, we are an Alzheimer's website that helps you with food tracking, pill reminders, doctor appointments, and family members' reminders.";
+        speakMessage(message);
+    });
+
+    // Add event listener for the second button
+    secondSpeechButton.addEventListener('click', () => {
+        const message = "We help you track your meals and nutrition, remind you about your family tree, and offer a chatbot to assist with your daily memory needs.";
+        speakMessage(message);
+    });
+
+   
+
+
+        window.addEventListener('scroll', () => {
+    const robotAvatar = document.querySelector('.robot-avatar');
+    const scrollY = window.scrollY;
+
+    let newTop = Math.min(scrollY, 600);
+
+    robotAvatar.style.transform = `translateY(${newTop}px)`;
+});
+
+
+
+    </script>
+
+</body>
+</html>
